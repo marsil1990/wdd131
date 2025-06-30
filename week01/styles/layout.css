@@ -1,6 +1,7 @@
 body {
-    max-width: 800px;
-    height: 600px;
+    /* width: clamp(70ch, 50%, 90ch); */
+    /* height: 600px; */
+    aspect-ratio: 2/1;
     margin: 0 auto;
     display: grid;
     grid-template-rows: 2fr 6fr 3fr;
@@ -15,15 +16,16 @@ header {
 
 p {
     margin-left: 10px;
+    margin-bottom: 80px;
 }
 
 
 header nav {
-    grid-row: 2 / 3;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: black;
+    height: 40px;
 }
 
 header nav a {
