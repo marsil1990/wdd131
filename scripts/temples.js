@@ -5,6 +5,8 @@ const header = document.querySelector("header");
 const yearSpan = document.getElementById("currentyear");
 const currentYear = new Date().getFullYear();
 yearSpan.textContent = currentYear;
+
+
 hamButton.addEventListener('click', () => {
     navigation.classList.toggle('open');
     hamButton.classList.toggle('open');
@@ -13,3 +15,5 @@ hamButton.addEventListener('click', () => {
 
 });
 
+const lastModified = document.lastModified;
+document.getElementById("lastModified").textContent = "Last Modified " + lastModified;
