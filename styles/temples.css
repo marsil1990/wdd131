@@ -67,6 +67,11 @@ header {
     margin: 1rem auto
 }
 
+.navigation.open a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
 
 
 .navigation a {
