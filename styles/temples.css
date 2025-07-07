@@ -18,6 +18,9 @@ header {
     color: white;
 }
 
+main h2 {
+    display: none;
+}
 
 #title {
     margin-right: auto;
@@ -25,6 +28,8 @@ header {
     font-size: 30px;
     font-weight: bold;
 }
+
+
 
 #menu {
     width: 3rem;
@@ -57,7 +62,10 @@ header {
 
 }
 
-
+.navigation a:hover {
+    background-color: #eee;
+    color: #333;
+}
 
 .navigation.open {
     display: flex;
@@ -78,6 +86,7 @@ header {
     display: none;
 
 }
+
 
 
 .hide {
