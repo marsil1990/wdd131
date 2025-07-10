@@ -26,7 +26,7 @@ header {
 }
 
 main {
-    << position: relative;
+    position: relative;
     max-width: 1000px;
     margin: 0 auto;
     border-top: 20px solid green;
