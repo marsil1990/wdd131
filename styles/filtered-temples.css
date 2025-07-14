@@ -1,0 +1,163 @@
+:root {
+    --primary-color: rgb(19, 19, 48);
+    --text-color: white;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+
+header {
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+main h2 {
+    display: none;
+}
+
+#title {
+    margin-right: auto;
+    margin-left: 1rem;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+
+#menu {
+    width: 3rem;
+    height: 3rem;
+}
+
+#menu.open {
+    align-self: flex-start;
+    margin-top: 1rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+#menu::before {
+    content: "☰";
+}
+
+#menu.open::before {
+    content: "❌";
+
+}
+
+
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.navigation a:hover {
+    background-color: #eee;
+    color: #333;
+}
+
+.navigation.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem auto
+}
+
+.navigation.open a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+
+.navigation a {
+    display: none;
+
+}
+
+
+
+.hide {
+    display: none;
+
+}
+
+
+
+.open a {
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    margin-top: 15px;
+}
+
+main h1 {
+    margin-right: 2rem;
+}
+
+figure {
+    width: 400px;
+    height: 350px;
+    background-color: rgb(218, 214, 214);
+    padding: 1rem;
+    margin: 10px auto;
+}
+
+figure strong {
+    color: rgb(3, 3, 108);
+    font-size: 12px;
+}
+
+figure p {
+    font-size: 15px;
+    margin: 5px 0;
+}
+
+
+footer {
+    text-align: center;
+    color: var(--text-color);
+    height: 100px;
+    align-content: center;
+    background-color: rgb(19, 19, 48);
+    text-align: center;
+}
+
+footer p {
+    align-self: center;
+    font-size: 20px;
+
+}
