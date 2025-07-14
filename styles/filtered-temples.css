@@ -124,7 +124,7 @@ img {
     border-radius: 0.2rem;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     margin-top: 15px;
-    animation: fade 15s;
+    animation: fade 10s;
 }
 
 
