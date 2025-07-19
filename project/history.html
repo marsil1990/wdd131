@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History of Nacional</title>
+    <meta name="description"
+        content="WDD 131 - Dynamic Web Fundamentals - Marcos Silvera - History page Club Nacional project">
+    <meta name="author" content="Marcos Silvera">
+    <link rel="stylesheet" href="styles/base.css">
+    <script src="scripts/history.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Club Nacional de Football</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="history.html">History</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Our Story</h2>
+        <p>Nacional was foundes in 1899 and is one of the most successful and historic football clubs in Uruguay and
+            South America. With many local and international titles, the team has a rich heritage </p>
+        <form id="fanForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="favorite">Your Favorite Player:</label>
+            <input type="text" id="favorite" name="favorite" required />
+
+            <button type="submit">Save</button>
+        </form>
+        <div id="savedFan"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Fans. <a href="references.html">References</a></p>
+    </footer>
+
+</body>
+
+</html>
