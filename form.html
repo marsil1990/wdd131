@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Form</title>
+    <link rel="stylesheet" href="styles/form.css">
+    <script src="scripts/form.js" defer></script>
+    <meta name="description"
+        content="WDD 131 - Dynamic Web Fundamentals - Marcos Silvera - Form page project demonstrating skills in HTML, CSS and JavaScript">
+    <meta name="author" content="Marcos Silvera">
+</head>
+
+<body>
+    <header>
+        <h1>Product Review</h1>
+    </header>
+
+    <main>
+        <form action="review.html" method="get">
+            <label>Product Name
+                <select name="pname" id="pname">
+
+
+
+                </select>
+            </label>
+
+            <div class="rating">Overall Rating</div>
+            <div class="stars">
+                <input type="radio" id="fivestar" name="star" value="5" required><label for="fivestar"
+                    class="star"></label>
+                <input type="radio" id="fourstar" name="star" value="4"><label for="fourstar" class="star"></label>
+                <input type="radio" id="threestar" name="star" value="3"><label for="threestar" class="star"></label>
+                <input type="radio" id="twostar" name="star" value="2"><label for="twostar" class="star"></label>
+                <input type="radio" id="onestar" name="star" value="1"><label for="onestar" class="star"></label>
+            </div>
+
+            <label>Date of Installation<input type="date" name="dateOfInstallation" id="dateI"></label>
+
+            <div class="features">
+                Useful Features
+                (check all that apply)
+            </div>
+            <label><input type="checkbox" name="durability" id="durability" value="yes">Durability</label>
+            <label><input type="checkbox" name="easeUse" id="easeUse" value="yes">Ease of Use</label>
+            <label><input type="checkbox" name="perfomance" id="perfomance" value="yes">Perfomance</label>
+            <label><input type="checkbox" name="design" id="design" value="yes">Design</label>
+
+            <label>Written Review(optional)<textarea name="review" id="review"></textarea></label>
+            <label>Your Name(optional)<input type="text" name="userName" id="userName"></label>
+            <input type="submit" id="button" value="Post Review">
+
+        </form>
+
+    </main>
+
+</body>
+
+<footer>
+    <p>&copy; <span id="currentyear"> </span> Marcos Silvera | Uruguay</p>
+    <p id="lastModified"></p>
+</footer>
+
+</html>

@@ -1,0 +1,146 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer,
+header {
+    text-align: center;
+    background-color: rgb(19, 19, 48);
+    color: white;
+    height: 50px;
+}
+
+.riview-main {
+    min-height: 400px;
+    text-align: center;
+
+}
+
+header h1 {
+    margin-top: 0;
+}
+
+form {
+    max-width: 400px;
+    margin: 1rem auto;
+    background-color: rgb(226, 234, 245);
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: .5rem 2%;
+    color: #000;
+}
+
+
+label {
+    display: block;
+    padding-top: 1rem;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+
+div {
+    padding-top: 2rem;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+
+input[type="text"],
+input[type="date"],
+select {
+    background-color: #eee;
+    display: block;
+    border: solid 1px #999;
+    border-radius: 6px;
+    padding: .75rem;
+    width: 100%;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    padding: .75rem;
+    height: 150px;
+}
+
+input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+
+
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+
+
+.stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    padding-top: 0;
+}
+
+
+
+
+
+.stars>label {
+    color: gold;
+    width: 30px;
+    height: 30px;
+    font-size: 2rem;
+    margin: 0 5px 10px 0;
+    display: flex;
+    align-items: center;
+    caret-color: rgba(0, 0, 0, 0);
+    padding-top: 0;
+    /* remove blinking cursor*/
+}
+
+.stars>label:hover {
+    color: #000;
+}
+
+.stars>label::before {
+    content: "\2606";
+
+
+}
+
+.stars input:checked~label::before {
+    content: "\2605";
+
+}
+
+
+input[type="submit"] {
+    border: none;
+    background-image: linear-gradient(#9c2c13, #6f200e);
+    color: #fff;
+    border-radius: 6px;
+    padding: .75rem;
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+}
+
+input:required {
+    border-left: solid 8px red;
+}
+
+input:required:valid {
+    border-bottom: solid 8px green;
+}
