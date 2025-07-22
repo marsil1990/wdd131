@@ -39,6 +39,7 @@ form {
 }
 
 
+
 label {
     display: block;
     padding-top: 1rem;
@@ -87,11 +88,25 @@ input[type="radio"] {
 
 
 
+
+
 .stars {
     display: flex;
     flex-direction: row-reverse;
     justify-content: left;
     padding-top: 0;
+}
+
+.rating {
+    border-left: 8px solid red;
+    padding-left: 10px;
+    margin-top: 15px;
+    border-radius: 6px
+}
+
+.rating:has(input:checked) {
+    border-left: 8px solid green;
+    border-radius: 6px
 }
 
 .hidden {
@@ -147,10 +162,18 @@ input[type="submit"] {
     margin: 1rem 0 1rem 0;
 }
 
+
+select:required,
 input:required {
     border-left: solid 8px red;
 }
 
+
+select:required:valid,
 input:required:valid {
-    border-bottom: solid 8px green;
+    border-left: solid 8px green;
+}
+
+.rating {
+    margin-top: 15px;
 }

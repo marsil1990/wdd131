@@ -1,7 +1,5 @@
 const products = [
-    {
-        name: "Choose a Product"
-    },
+
     {
         id: "fc-1888",
         name: "flux capacitor",
@@ -37,8 +35,9 @@ function optionName(option) {
 }
 
 function renderOptions(products) {
-    const html = products.map(optionName);
-    document.querySelector("#pname").innerHTML = html.join("");
+    const select = document.querySelector("#pname");
+    select.innerHTML = '<option value="" disabled selected>Choose a Product</option>';
+    select.innerHTML += products.map(optionName).join("");
 }
 
 renderOptions(products);
