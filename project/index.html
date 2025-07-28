@@ -19,25 +19,45 @@
 
 <body>
     <header>
-        <h1>Club Nacional de Football</h1>
-        <nav>
+
+        <nav class="navigation">
+            <img src="images/logo.webp" alt="Nacional Logo">
+            <h1 id="title">Club Nacional de Football</h1>
+
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="history.html">History</a></li>
             </ul>
+            <button type="button" id="menu" aria-label="Open navigation menu"></button>
         </nav>
+
     </header>
 
     <main>
-        <h2>Welcome Fans!</h2>
-        <p>Welcome to the official fan website of Naciona. Here you'll find the latest news, team information, and club
-            history</p>
-        <img src="images/nacional-stadium.webp" alt="Nacional Stadium" loading="lazy">
-        <section id="nextMath"> </section>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Welcome Fans!</h2>
+                <p class="hero-text-p">Welcome to the official fan website of Naciona. Here you'll find the latest news,
+                    team information,
+                    and club history</p>
+            </div>
+            <picture class="hero-img">
+                <source srcset="images/stadium.webp" media="(min-width: 750px)">
+                <img src="images/parque_carlos_gardel_mobile.webp" alt="Gardel y el Parque Central" width="400"
+                    height="600">
+            </picture>
+
+        </section>
+        <h2 class="match-title">Next Matches</h2>
+        <section id="nextMatches">
+
+
+        </section>
+
     </main>
     <footer>
-        <p>&copy; 2025 Fans. <a href="references.html">References</a></p>
+        <p>&copy;<span id="currentyear"></span> 2025 Fans. <a href="references.html">References</a></p>
     </footer>
 
 </body>
