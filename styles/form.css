@@ -177,3 +177,7 @@ input:required:valid {
 .rating {
     margin-top: 15px;
 }
+
+#currentyear {
+    color: white;
+}
