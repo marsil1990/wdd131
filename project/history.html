@@ -9,6 +9,7 @@
         content="WDD 131 - Dynamic Web Fundamentals - Marcos Silvera - History page Club Nacional project">
     <meta name="author" content="Marcos Silvera">
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/history.css">
     <script src="scripts/history.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,33 +19,120 @@
 
 <body>
     <header>
-        <h1>Club Nacional de Football</h1>
-        <nav>
+        <nav class="navigation">
+            <img src="images/logo.webp" alt="Nacional Logo">
+            <h1 id="title">Club Nacional de Football</h1>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="history.html">History</a></li>
             </ul>
+            <button type="button" id="menu" aria-label="Open navigation menu"></button>
         </nav>
     </header>
 
     <main>
-        <h2>Our Story</h2>
-        <p>Nacional was foundes in 1899 and is one of the most successful and historic football clubs in Uruguay and
-            South America. With many local and international titles, the team has a rich heritage </p>
-        <form id="fanForm">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required />
+        <section class="our-hsitory">
+            <h2>Our Story</h2>
+            <p>Nacional was foundes in 1899 and is one of the most successful and historic football clubs in Uruguay and
+                South America. With many local and international titles, the team has a rich heritage </p>
+        </section>
 
-            <label for="favorite">Your Favorite Player:</label>
-            <input type="text" id="favorite" name="favorite" required />
+        <section class="trajectory">
+            <h2>The first years of the history</h2>
 
-            <button type="submit">Save My favorite Player</button>
-        </form>
-        <div id="savedFan"></div>
+            <article>
+                <h3>1899 - The Birth of Club Nacional de Football</h3>
+                <img src="images/fundation.webp" alt="Foundation of Club Nacional de Football" loading="lazy">
+                <div>
+
+                    <p>
+                        On May 14, 1899, 22 young men aged between 13 and 20 gathered at Ernesto Caprario's house to
+                        found Club Nacional de Football—the first creole club in the Americas and the oldest football
+                        club in Uruguay. During the founding session, they established the club's principles, name, and
+                        kit. Sebastián Puppo was elected as President, and Domingo Prat as Captain.
+                    </p>
+                </div>
+            </article>
+
+            <article>
+                <h3>1899 - The First Match in History</h3>
+                <img src="images/first_match.webp" alt="First match of Nacional" loading="lazy">
+                <div>
+
+                    <p>
+                        On June 25, 1899, Nacional defeated Uruguay Athletic's second team 2-0 in Punta Carretas, on a
+                        field loaned to them by Juan Cat, Manager of the Sociedad Comercial de Montevideo. Melitón
+                        Romero scored the first-ever goal in Nacional's history, followed by Juan Carlos Vallarino.
+                    </p>
+                </div>
+            </article>
+
+            <article>
+                <h3>1899 - The First Fan and the First Supporters</h3>
+                <img src="images/first_fan.webp" alt="First supporter of Nacional" loading="lazy">
+                <div>
+
+                    <p>
+                        Miguel Prudencio Reyes, who handled equipment and inflated the balls, cheered Nacional loudly
+                        from the sidelines. His constant encouragement during games led spectators to ask, “Who is
+                        that?” — “That's the fan... the ball inflator of Nacional.” The word *hincha* (fan) was born at
+                        Club Nacional de Football.
+                    </p>
+                </div>
+            </article>
+
+            <article>
+                <h3>1900 - Nacional Arrives at Gran Parque Central</h3>
+                <img src="images/gran_parque_central.webp" alt="Gran Parque Central Stadium" loading="lazy">
+                <div>
+                    <p>
+                        On May 27, 1900, Nacional played its first match at the newly inaugurated Gran Parque Central
+                        against Deutscher F.K. Located on the historic grounds of the “Quinta de la Paraguaya,” where
+                        José Artigas was proclaimed leader of the Orientals in 1811, the stadium became Nacional’s home.
+                        It is the oldest stadium in the Americas and the 16th oldest in the world.
+                    </p>
+                </div>
+            </article>
+
+            <article>
+                <h3>1902 - The White Jersey and the Club Flag</h3>
+                <img src="images/white_jersey_flag.webp" alt="White jersey and flag creation" loading="lazy">
+                <div>
+                    <p>
+                        On March 24, 1902, Miguel Nebel proposed replacing the red and blue shirt with a white one—a
+                        motion that was approved. On May 23, the club's official flag was created. Domingo Prat
+                        suggested the colors blue, white, and deep red. Ernesto Caprario presented a sketch: a blue flag
+                        with a white diagonal stripe and the red inscription “C. N. de F.”
+                    </p>
+                </div>
+            </article>
+        </section>
+
+        <section class="section-form">
+            <form id="fanForm" action="review.html" method="get">
+                <fieldset>
+                    <legend>Add a comment indicating who you think was the <br> best player in Nacional's history
+                    </legend>
+                    <label>Your Name:
+                        <input type="text" id="name" name="name" required /></label>
+
+                    <label>Your Favorite Player:
+                        <input type="text" id="favorite" name="favorite" required /></label>
+
+
+                </fieldset>
+                <button type="submit">Save My favorite Player</button>
+            </form>
+
+            <div class="comment">
+                <p>Comments: </p>
+                <div id="savedFan"></div>
+            </div>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2025 Fans. <a href="references.html">References</a></p>
+        <p>&copy;<span id="currentyear"></span> 2025 Fans. <a href="references.html">References</a></p>
     </footer>
 
 </body>

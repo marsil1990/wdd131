@@ -9,6 +9,7 @@
         content="WDD 131 - Dynamic Web Fundamentals - Marcos Silvera - Team page Club Nacional project">
     <meta name="author" content="Marcos Silvera">
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/team.css">
     <script src="scripts/team.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,22 +19,108 @@
 
 <body>
     <header>
-        <h1>Club Nacional de Football</h1>
-        <nav>
+        <nav class="navigation">
+            <img src="images/logo.webp" alt="Nacional Logo">
+            <h1 id="title">Club Nacional de Football</h1>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="team.html">Tean</a></li>
+                <li><a href="team.html">Team</a></li>
                 <li><a href="history.html">History</a></li>
             </ul>
+            <button type="button" id="menu" aria-label="Open navigation menu"></button>
         </nav>
     </header>
 
-    <main>
-        <h2>Current Team</h2>
-        <ul id="playerList"></ul>
+    <main class="main-team">
+        <div>
+            <h2 class="title-team">Current Team</h2>
+            <label>
+                <select id="player-type" name="player-type">
+                    <option value="all">All players</option>
+                    <option value="local">Local players</option>
+                    <option value="foreign">Foreign players</option>
+                </select>
+            </label>
+        </div>
+
+
+        <section class="players">
+            <h3>GoalKeepers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Nationality</th>
+
+                    </tr>
+                </thead>
+                <tbody id="goalkeepers">
+
+                </tbody>
+            </table>
+        </section>
+
+
+        <section class="players">
+            <h3>Defenders</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Nationality</th>
+
+                    </tr>
+                </thead>
+                <tbody id="defenders">
+
+                </tbody>
+            </table>
+        </section>
+
+
+        <section class="players">
+            <h3>Midfielders </h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Nationality</th>
+
+                    </tr>
+                </thead>
+                <tbody id="midfielders">
+
+                </tbody>
+            </table>
+        </section>
+
+
+        <section class="players">
+            <h3>Forwards</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number</th>
+                        <th>Nationality</th>
+
+                    </tr>
+                </thead>
+                <tbody id="forwards">
+
+                </tbody>
+            </table>
+        </section>
+        <h3>Head Coach: Pablo Peirano</h3>
+
+
+
     </main>
     <footer>
-        <p>&copy; 2025 Fans. <a href="references.html">References</a></p>
+        <p>&copy;<span id="currentyear"></span> 2025 Fans. <a href="references.html">References</a></p>
     </footer>
 
 </body>
