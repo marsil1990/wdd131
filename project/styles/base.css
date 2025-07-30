@@ -168,6 +168,7 @@ button {
 
 .match-information ul {
     list-style: none;
+    padding: 5px;
 }
 
 
@@ -267,7 +268,8 @@ button {
         flex-direction: column;
         gap: 2.5rem;
         flex-wrap: wrap;
-        max-width: 1000px;
+        width: 100%;
+        height: auto;
         justify-content: center;
         align-items: center;
         margin: 0 auto;
@@ -279,8 +281,9 @@ button {
         align-items: center;
         border-radius: 8px;
         border: 2px solid red;
-        width: 50%;
+        width: 80%;
         height: auto;
+
     }
 
     .match-title {
@@ -300,11 +303,13 @@ button {
 
     .match-opponent p {
         margin-top: 15%;
+
     }
 
 
     .match-information ul {
         list-style: none;
+        padding: 5px;
     }
 
     .hero-img {
