@@ -17,6 +17,11 @@ main {
     margin: 0 auto;
 }
 
+main h1 {
+    justify-self: center;
+    color: var(--primary-color);
+}
+
 
 footer {
     background: var(--primary-color);
@@ -51,10 +56,11 @@ header {
 
 }
 
-h1 {
+header nav span {
+    font-size: 30px;
     width: 40%;
     align-self: center;
-    font-size: 1.5em;
+
 
 }
 
@@ -217,9 +223,8 @@ button {
     }
 
     .navigation img {
-        width: 70px;
-        height: auto;
-        aspect-ratio: 90 / 90;
+        width: 60px;
+        height: 60px;
     }
 
     #menu::before {
@@ -248,10 +253,6 @@ button {
     .navigation.open a {
         text-decoration: none;
         font-size: 20px;
-    }
-
-    h1 {
-        font-size: 1.5em;
     }
 
     .hide {

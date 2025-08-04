@@ -12,10 +12,8 @@
 
 }
 
-.our-hsitory h2 {
+h1 {
     color: var(--primary-color);
-    font-size: 1.5rem;
-    text-align: center;
 }
 
 .our-hsitory p {
@@ -66,7 +64,7 @@ article div {
 
 article div p {
     font-size: 18px;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .section-form {
@@ -137,6 +135,8 @@ article div p {
 
 }
 
+
+
 #savedFan p {
     color: black;
     font-size: 15px;
@@ -181,5 +181,10 @@ article div p {
         height: auto;
         padding: 1rem;
     }
+
+    #saveFan {
+        min-height: 100px;
+    }
+
 
 }
