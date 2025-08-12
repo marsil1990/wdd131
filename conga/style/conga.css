@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+header,
+main,
+footer {
+    max-width: 500px;
+    margin: 1rem auto;
+}
+
+header h1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    height: 50px;
+}
+
+/* <label>Número de jugadores: <input type="number" id="numberOfplayers"></label>
+            <button id="add">Agregar nombre de jugadores</button> */
+label {
+    font-size: 25px;
+}
+
+input[type="number"] {
+    height: 44px;
+    width: 50px;
+    border: 5px solid blue;
+    border-radius: 6px;
+    font-size: 13px;
+    padding: 4px;
+    background-color: black;
+    color: white;
+}
+
+#add {
+    height: 44px;
+    width: 200px;
+    border: 3px solid black;
+    border-radius: 6px;
+    background-color: blue;
+    color: white;
+    font-size: 13px;
+    font-style: bold;
+}
+
+#start {
+    height: 44px;
+    width: 200px;
+    border: 3px solid black;
+    border-radius: 6px;
+    background-color: red;
+    color: white;
+    font-size: 13px;
+    font-style: bold;
+}
+
+#playersname {
+    list-style: none;
+    margin: 10px auto;
+}
+
+input[type="text"] {
+    height: 44px;
+    width: 200px;
+    border: 5px solid blue;
+    border-radius: 6px;
+    font-size: 13px;
+    padding: 4px;
+    margin: 5px auto;
+    background-color: black;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    height: 20px;
+    font-size: 15px;
+    background-color: black;
+    color: white;
+}
+
+#update {
+    height: 44px;
+    width: 200px;
+    border: 3px solid black;
+    border-radius: 6px;
+    background-color: green;
+    color: white;
+    font-size: 13px;
+    font-style: bold;
+}
+
+
+table {
+    max-width: 500px;
+    width: 90%;
+    justify-self: start;
+}
+
+table th,
+table td {
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}

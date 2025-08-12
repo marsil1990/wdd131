@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conga</title>
+    <link rel="stylesheet" href="style/conga.css">
+    <script src="scripts/conga.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>La Conga</h1>
+    </header>
+    <main>
+        <div>
+            <label>Número de jugadores: <input type="number" id="numberOfplayers"></label>
+            <button id="add">Agregar nombre de jugadores</button>
+            <div class="players">
+                <ul id="playersname">
+                </ul>
+                <button id="start">Iniciar El Juego</button>
+            </div>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Puntos</th>
+                        <th>Agregar Puntos</th>
+                    </tr>
+                </thead>
+                <tbody id="players">
+                </tbody>
+            </table>
+            <button id="update">Actualizar</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentyear"> </span> Marcos Silvera | Uruguay</p>
+    </footer>
+
+</body>
+
+</html>
