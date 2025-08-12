@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
         renderPlayers(players);
         playersInputs.classList.add("hide");
         playersNumber.value = "";
-        playersNumber.focus()
         start.classList.add("hide");
     })
 
