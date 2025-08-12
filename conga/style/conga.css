@@ -17,7 +17,7 @@ header {
     height: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -72,13 +72,12 @@ input[type="number"] {
 
 #restart {
     height: 44px;
-    width: 200px;
+    width: 100px;
     border: 3px solid black;
     border-radius: 6px;
     background-color: red;
     color: white;
     font-size: 13px;
-    margin-left: 7rem;
 }
 
 #playersname {
