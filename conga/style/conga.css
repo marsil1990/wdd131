@@ -12,11 +12,18 @@ footer {
     margin: 1rem auto;
 }
 
+header {
+    background-color: black;
+}
+
 header h1 {
+    display: inline;
+    width: 80%;
     text-align: center;
     background-color: black;
     color: white;
     height: 50px;
+    margin-left: 10px;
 }
 
 /* <label>Número de jugadores: <input type="number" id="numberOfplayers"></label>
@@ -56,6 +63,17 @@ input[type="number"] {
     color: white;
     font-size: 13px;
     font-style: bold;
+}
+
+#restart {
+    height: 44px;
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 6px;
+    background-color: red;
+    color: white;
+    font-size: 13px;
+    margin-left: 15rem;
 }
 
 #playersname {

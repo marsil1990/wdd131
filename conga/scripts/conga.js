@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const table = document.querySelector("table");
     const update = document.getElementById("update");
     const start = document.getElementById("start");
+    const restart = document.getElementById("restart");
     table.classList.add("hide");
     update.classList.add("hide");
     start.classList.add("hide");
@@ -87,4 +88,9 @@ document.addEventListener("DOMContentLoaded", function () {
         renderPlayers(players);
     })
 
+    restart.addEventListener('click', () => {
+        players = [];
+        localStorage.setItem('players', JSON.stringify(players));
+        renderPlayers(players);
+    })
 });
