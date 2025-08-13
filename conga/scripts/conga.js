@@ -6,9 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const playersInputs = document.getElementById('playersname');
     const playersPlaying = document.getElementById("players");
     const table = document.querySelector("table");
+    const column1 = document.querySelector(".column1");
     const update = document.getElementById("update");
     const start = document.getElementById("start");
     const restart = document.getElementById("restart");
+    const winner = document.createElement("h2");
     table.classList.add("hide");
     update.classList.add("hide");
     start.classList.add("hide");
@@ -20,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function showPlayers(player) {
-        return `<tr> <td>${player.name}</td> <td> ${player.points}</td> <td> <input type="number" id="add${player.id}"/></td></tr>`
+        return `<tr> <td>${player.name}</td> <td> ${player.points}</td> <td> <input type="number" id="add${player.id}"/></td> <td><div id="buttons-${player.id}"></div> </td></tr>`
     }
 
     function renderPlayers(players) {
@@ -85,11 +87,75 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         localStorage.setItem('players', JSON.stringify(players));
         renderPlayers(players);
+        let numberOfplayers = 0
+        let idplayer;
+
+        const button1 = document.createElement("button");
+        const button2 = document.createElement("button");
+        players.forEach(element => {
+            if (element.points >= 100) {
+                numberOfplayers++;
+                const divbuttons = document.getElementById(`buttons-${element.id}`);
+                button1.value = element.id;
+                button2.value = element.id;
+                button1.textContent = "Renganchar";
+                button2.textContent = "Eliminar";
+                button1.classList.add("buttons");
+                button2.classList.add("buttons");
+                divbuttons.append(button1);
+                divbuttons.append(button2);
+            }
+            else {
+                idplayer = element.id;
+            }
+        });
+        if (numberOfplayers === players.length - 1) {
+            let winningPalyer = `The winner is ${players[idplayer].name}`
+            winner.textContent = winningPalyer;
+            table.classList.add("hide");
+            update.classList.add("hide");
+            start.classList.add("hide");
+            column1.append(winner);
+            winner.classList.remove("hide");
+            players = [];
+            localStorage.setItem('players', JSON.stringify(players));
+        }
+        else if (numberOfplayers === players.length) {
+            let winningPlyer = `Todos perdieron`
+            winner.textContent = winningPlyer;
+            table.classList.add("hide");
+            update.classList.add("hide");
+            start.classList.add("hide");
+            column1.append(winner);
+            winner.classList.remove("hide");
+            players = [];
+            localStorage.setItem('players', JSON.stringify(players));
+        }
+        else {
+            button2.addEventListener('click', (v) => {
+                players.splice(v.target.value, 1);
+                localStorage.setItem('players', JSON.stringify(players));
+                renderPlayers(players);
+            });
+
+            let max = 0
+            button1.addEventListener('click', (v) => {
+                players.forEach(element => {
+                    if (element.points > max && element.points < 100) {
+                        max = element.points
+                    }
+                });
+                players[v.target.value].points = max;
+                localStorage.setItem('players', JSON.stringify(players));
+                renderPlayers(players);
+            });
+        }
     })
 
     restart.addEventListener('click', () => {
         players = [];
         localStorage.setItem('players', JSON.stringify(players));
         renderPlayers(players);
+        winner.classList.add("hide");
     })
 });
