@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let players = localStorage.getItem('players') ? JSON.parse(localStorage.getItem('players')) : [];
 
+
+
     const playersNumber = document.getElementById('numberOfplayers');
     const playersInputs = document.getElementById('playersname');
     const playersPlaying = document.getElementById("players");
@@ -11,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const start = document.getElementById("start");
     const restart = document.getElementById("restart");
     const winner = document.createElement("h2");
-    table.classList.add("hide");
-    update.classList.add("hide");
-    start.classList.add("hide");
+    // table.classList.add("hide");
+    // update.classList.add("hide");
+    // start.classList.add("hide");
 
 
     function renderAddPlayersInput(inputsPlayers) {
@@ -30,27 +32,35 @@ document.addEventListener("DOMContentLoaded", function () {
         playersPlaying.innerHTML = playersShowing.join("");
     }
 
+    if (players != []) {
+        renderPlayers(players);
+    }
+
+
     document.getElementById("add").addEventListener('click', () => {
-        start.classList.remove("hide");
-        playersInputs.classList.remove("hide");
-        let inputs = []
-        if (!players) {
-            for (let i = 0; i < playersNumber.value; i++) {
-                inputs.push(`<li> <input type="text" id="${i}"/> </li>`)
+        if (playersNumber.value != "") {
+            start.classList.remove("hide");
+            playersInputs.classList.remove("hide");
+            let inputs = []
+            if (!players) {
+                for (let i = 0; i < playersNumber.value; i++) {
+                    inputs.push(`<li> <input type="text" id="${i}"/> </li>`)
+                }
+                let inputsString = inputs.join("");
+                renderAddPlayersInput(inputsString);
             }
-            let inputsString = inputs.join("");
-            renderAddPlayersInput(inputsString);
-        }
-        else {
-            for (let i = players.length; i < players.length + parseInt(playersNumber.value); i++) {
-                console.log(players.length + parseInt(playersNumber.value))
-                inputs.push(`<li> <input type="text" id="${i}"/> </li>`)
+            else {
+                for (let i = players.length; i < players.length + parseInt(playersNumber.value); i++) {
+                    console.log(players.length + parseInt(playersNumber.value))
+                    inputs.push(`<li> <input type="text" id="${i}"/> </li>`)
+                }
+                let inputsString = inputs.join("");
+                renderAddPlayersInput(inputsString);
             }
-            let inputsString = inputs.join("");
-            renderAddPlayersInput(inputsString);
         }
 
     })
+
 
     start.addEventListener('click', () => {
         table.classList.remove("hide");
@@ -156,6 +166,9 @@ document.addEventListener("DOMContentLoaded", function () {
         players = [];
         localStorage.setItem('players', JSON.stringify(players));
         renderPlayers(players);
+        table.classList.add("hide");
+        update.classList.add("hide");
+        start.classList.add("hide");
         winner.classList.add("hide");
     })
 });
