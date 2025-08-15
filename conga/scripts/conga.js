@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const start = document.getElementById("start");
     const restart = document.getElementById("restart");
     const winner = document.createElement("h2");
+
+
+
     // table.classList.add("hide");
     // update.classList.add("hide");
     // start.classList.add("hide");
@@ -24,7 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function showPlayers(player) {
-        return `<tr> <td>${player.name}</td> <td> ${player.points}</td> <td> <input type="number" id="add${player.id}"/></td> <td><div id="buttons-${player.id}"></div> </td></tr>`
+        if (player.points >= 100) {
+            return `<tr> <td>${player.name}</td> <td> ${player.points}</td> <td> <input type="number" id="add${player.id}"/></td>   <td> <button class="renganchar" id="r-${player.id}" value="${player.id}">Renganchar</button> <button class="eliminar" id="e-${player.id}" value="${player.id}">Eliminar</button></td></tr>`
+        }
+        else {
+            return `<tr> <td>${player.name}</td> <td> ${player.points}</td> <td> <input type="number" id="add${player.id}"/></td></tr>`
+        }
     }
 
     function renderPlayers(players) {
@@ -66,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
         table.classList.remove("hide");
         update.classList.remove("hide");
         if (!players) {
-            console.log(playersNumber.value);
             for (let i = 0; i < playersNumber.value; i++) {
                 let inputP = document.getElementById(`${i}`)
 
@@ -80,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(i, inputP, players.length + parseInt(playersNumber.value));
                 players.push({ id: i, name: inputP.value, points: 0 })
             }
+
         }
         localStorage.setItem('players', JSON.stringify(players));
         renderPlayers(players);
@@ -90,35 +98,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     update.addEventListener('click', () => {
-        for (let i = 0; i < players.length; i++) {
-            if (document.getElementById(`add${i}`).value) {
-                players[i].points = parseInt(document.getElementById(`add${i}`).value) + parseInt(players[i].points)
+        players.forEach(element => {
+            if (document.getElementById(`add${element.id}`).value != "") {
+                element.points = parseInt(document.getElementById(`add${element.id}`).value) + parseInt(element.points);
             }
-        }
+        });
         localStorage.setItem('players', JSON.stringify(players));
         renderPlayers(players);
-        let numberOfplayers = 0
-        let idplayer;
+        let numberOfplayers = 0;
+        let idplayer = null;
 
-        const button1 = document.createElement("button");
-        const button2 = document.createElement("button");
         players.forEach(element => {
             if (element.points >= 100) {
                 numberOfplayers++;
-                const divbuttons = document.getElementById(`buttons-${element.id}`);
-                button1.value = element.id;
-                button2.value = element.id;
-                button1.textContent = "Renganchar";
-                button2.textContent = "Eliminar";
-                button1.classList.add("buttons");
-                button2.classList.add("buttons");
-                divbuttons.append(button1);
-                divbuttons.append(button2);
+
             }
             else {
-                idplayer = element.id;
+                idplayer = element.id
             }
+
         });
+
         if (numberOfplayers === players.length - 1) {
             let winningPalyer = `The winner is ${players[idplayer].name}`
             winner.textContent = winningPalyer;
@@ -142,25 +142,58 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem('players', JSON.stringify(players));
         }
         else {
-            button2.addEventListener('click', (v) => {
-                players.splice(v.target.value, 1);
-                localStorage.setItem('players', JSON.stringify(players));
-                renderPlayers(players);
-            });
-
-            let max = 0
-            button1.addEventListener('click', (v) => {
-                players.forEach(element => {
-                    if (element.points > max && element.points < 100) {
-                        max = element.points
-                    }
-                });
-                players[v.target.value].points = max;
-                localStorage.setItem('players', JSON.stringify(players));
-                renderPlayers(players);
-            });
+            renderPlayers(players)
+            buttondelete();
+            buttonrenganche();
         }
+
     })
+
+    function buttondelete() {
+        document.querySelectorAll(".eliminar").forEach(b => {
+            if (b != null) {
+                b.addEventListener('click', (e) => {
+                    console.log(e.target.value)
+                    const idx1 = players.findIndex(p => p.id == parseInt(e.target.value));
+                    if (idx1 !== -1) players.splice(idx1, 1);
+                    for (let i = 0; i < players.length; i++) {
+                        players[i].id = i;
+                    }
+                    localStorage.setItem('players', JSON.stringify(players));
+                    renderPlayers(players);
+                    buttondelete();
+                    buttonrenganche();
+                });
+            }
+        })
+    }
+
+
+    function buttonrenganche() {
+        document.querySelectorAll(".renganchar").forEach(b => {
+            if (b != null) {
+                b.addEventListener('click', (e) => {
+                    console.log();
+                    let max = 0
+                    players.forEach(element => {
+                        if (element.points > max && element.points < 100) {
+                            max = element.points
+                        }
+                    });
+                    const idx2 = players.findIndex(p => p.id == parseInt(e.target.value));
+                    players[idx2].points = max;
+                    localStorage.setItem('players', JSON.stringify(players));
+                    renderPlayers(players);
+                    buttonrenganche()
+                    buttondelete();
+                });
+            }
+        })
+    }
+
+    renderPlayers(players);
+    buttondelete();
+    buttonrenganche();
 
     restart.addEventListener('click', () => {
         players = [];
@@ -171,4 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
         start.classList.add("hide");
         winner.classList.add("hide");
     })
+
+
+
+
 });

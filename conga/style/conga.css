@@ -135,7 +135,8 @@ table td {
 }
 
 
-.buttons {
+.renganchar,
+.eliminar {
     height: 44px;
     width: auto;
     border: 3px solid black;
