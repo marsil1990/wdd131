@@ -143,57 +143,90 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         else {
             renderPlayers(players)
-            buttondelete();
-            buttonrenganche();
+            // buttondelete();
+            // buttonrenganche();
         }
 
     })
 
-    function buttondelete() {
-        document.querySelectorAll(".eliminar").forEach(b => {
-            if (b != null) {
-                b.addEventListener('click', (e) => {
-                    console.log(e.target.value)
-                    const idx1 = players.findIndex(p => p.id == parseInt(e.target.value));
-                    if (idx1 !== -1) players.splice(idx1, 1);
-                    for (let i = 0; i < players.length; i++) {
-                        players[i].id = i;
-                    }
-                    localStorage.setItem('players', JSON.stringify(players));
-                    renderPlayers(players);
-                    buttondelete();
-                    buttonrenganche();
-                });
-            }
-        })
-    }
+    // function buttondelete() {
+    //     document.querySelectorAll(".eliminar").forEach(b => {
+    //         if (b != null) {
+    //             b.addEventListener('click', (e) => {
+    //                 console.log(e.target.value)
+    //                 const idx1 = players.findIndex(p => p.id == parseInt(e.target.value));
+    //                 if (idx1 !== -1) players.splice(idx1, 1);
+    //                 for (let i = 0; i < players.length; i++) {
+    //                     players[i].id = i;
+    //                 }
+    //                 localStorage.setItem('players', JSON.stringify(players));
+    //                 renderPlayers(players);
+    //                 buttondelete();
+    //                 buttonrenganche();
+    //             });
+    //         }
+    //     })
+    // }
 
 
-    function buttonrenganche() {
-        document.querySelectorAll(".renganchar").forEach(b => {
-            if (b != null) {
-                b.addEventListener('click', (e) => {
-                    console.log();
-                    let max = 0
-                    players.forEach(element => {
-                        if (element.points > max && element.points < 100) {
-                            max = element.points
-                        }
-                    });
-                    const idx2 = players.findIndex(p => p.id == parseInt(e.target.value));
-                    players[idx2].points = max;
-                    localStorage.setItem('players', JSON.stringify(players));
-                    renderPlayers(players);
-                    buttonrenganche()
-                    buttondelete();
-                });
+    // function buttonrenganche() {
+    //     document.querySelectorAll(".renganchar").forEach(b => {
+    //         if (b != null) {
+    //             b.addEventListener('click', (e) => {
+    //                 console.log();
+    //                 let max = 0
+    //                 players.forEach(element => {
+    //                     if (element.points > max && element.points < 100) {
+    //                         max = element.points
+    //                     }
+    //                 });
+    //                 const idx2 = players.findIndex(p => p.id == parseInt(e.target.value));
+    //                 players[idx2].points = max;
+    //                 localStorage.setItem('players', JSON.stringify(players));
+    //                 renderPlayers(players);
+    //                 buttonrenganche()
+    //                 buttondelete();
+    //             });
+    //         }
+    //     })
+    // }
+
+    // renderPlayers(players);
+    // buttondelete();
+    // buttonrenganche();
+
+
+    playersPlaying.addEventListener('click', (e) => {
+        const btn = e.target.closest('button');
+        if (!btn || !playersPlaying.contains(btn)) return;
+
+        // ELIMINAR
+        if (btn.classList.contains('eliminar')) {
+            const id = Number(btn.value);
+            const idx = players.findIndex(p => p.id === id);
+            if (idx !== -1) {
+                players.splice(idx, 1);
+                players.forEach((p, i) => p.id = i); // reindex
+                localStorage.setItem('players', JSON.stringify(players));
+                renderPlayers(players);
             }
-        })
-    }
+            return;
+        }
+
+        // RENGANCHAR
+        if (btn.classList.contains('renganchar')) {
+            const id = Number(btn.value);
+            const max = players.reduce((m, p) => (p.points < 100 ? Math.max(m, p.points) : m), 0);
+            const idx = players.findIndex(p => p.id === id);
+            if (idx !== -1) {
+                players[idx].points = max;
+                localStorage.setItem('players', JSON.stringify(players));
+                renderPlayers(players);
+            }
+        }
+    });
 
     renderPlayers(players);
-    buttondelete();
-    buttonrenganche();
 
     restart.addEventListener('click', () => {
         players = [];
